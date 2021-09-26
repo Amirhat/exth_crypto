@@ -27,7 +27,7 @@ defmodule ExthCrypto.Hash.Keccak do
   """
   @spec kec(binary()) :: keccak_hash
   def kec(data) do
-    :keccakf1600.sha3_256(data)
+    :error
   end
 
   @doc """
@@ -41,7 +41,7 @@ defmodule ExthCrypto.Hash.Keccak do
   """
   @spec init_mac() :: keccak_mac
   def init_mac() do
-    :keccakf1600.init(:sha3_256)
+    :error
   end
 
   @doc """
@@ -57,7 +57,7 @@ defmodule ExthCrypto.Hash.Keccak do
   """
   @spec update_mac(keccak_mac, binary()) :: keccak_mac
   def update_mac(mac, data) do
-    :keccakf1600.update(mac, data)
+    :error
   end
 
   @doc """
@@ -73,8 +73,8 @@ defmodule ExthCrypto.Hash.Keccak do
       "8f54f1c2d0eb5771cd5bf67a6689fcd6eed9444d91a39e5ef32a9b4ae5ca14ff"
   """
   @spec final_mac(keccak_mac) :: keccak_hash
-  def final_mac(mac) do
-    :keccakf1600.final(mac)
+  def final_mac(_mac) do
+    :error
   end
 
 end
